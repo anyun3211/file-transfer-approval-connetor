@@ -1,0 +1,22 @@
+{
+  "name": "fc-dingtalk-approval",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@alicloud/ecd20200930": "^4.23.4",
+    "@alicloud/eds-user20210308": "^2.1.1",
+    "@alicloud/openapi-client": "^0.4.12",
+    "@alicloud/tea-util": "^1.4.9",
+    "ali-oss": "^6.21.0",
+    "dingtalk-encrypt": "^2.1.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.1",
+    "vite": "^5.1.6"
+  }
+}
