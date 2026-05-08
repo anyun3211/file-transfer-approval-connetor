@@ -68,7 +68,18 @@
 
 ## 三、阿里云平台配置
 
-### 3.1 创建 RAM 角色
+### 3.1 开通 OSS 并创建 Bucket
+
+1. 登录 [OSS 控制台](https://oss.console.aliyun.com)
+2. 创建 Bucket：
+   - **名称**：如 `test-file-approval`（全局唯一）
+   - **地域**：与 FC 函数同地域（建议 `cn-shanghai`）
+   - **访问权限**：私有
+3. 可选：配置生命周期规则，自动清理过期映射文件 (可选，根据实际需求来)
+   - 前缀：`approval-mappings/`
+   - 过期天数：7 天
+
+### 3.2 创建 RAM 角色
 
 1. 登录 [RAM 控制台](https://ram.console.aliyun.com)
 2. 创建角色：
@@ -109,16 +120,6 @@
 
 4. 记录角色 ARN（如 `acs:ram::<ACCOUNT_ID>:role/fc-dingtalk-approval-role`）
 
-### 3.2 开通 OSS 并创建 Bucket
-
-1. 登录 [OSS 控制台](https://oss.console.aliyun.com)
-2. 创建 Bucket：
-   - **名称**：如 `test-file-approval`（全局唯一）
-   - **地域**：与 FC 函数同地域（建议 `cn-shanghai`）
-   - **访问权限**：私有
-3. 可选：配置生命周期规则，自动清理过期映射文件 (可选，根据实际需求来)
-   - 前缀：`approval-mappings/`
-   - 过期天数：7 天
 
 ### 3.3 创建 FC 函数
 
@@ -149,7 +150,7 @@
 | `DINGTALK_APP_KEY` | 钉钉应用 AppKey | `dingxxxxxxxxx` |
 | `DINGTALK_APP_SECRET` | 钉钉应用 AppSecret | `xxxxxxxxxxxxx` |
 | `DINGTALK_PROCESS_CODE` | 审批流程编码 | `PROC-8308F2C9-E852-...` |
-| `DINGTALK_CORP_ID` | 企业 CorpId | `dinge4a8fd7********` |
+| `DINGTALK_CORP_ID` | 钉钉应用 AppKey | `dinge4a8fd7********` |
 | `DINGTALK_CALLBACK_TOKEN` | 回调 Token | 钉钉事件订阅自动生成 |
 | `DINGTALK_CALLBACK_AES_KEY` | 回调 AES 密钥（43位） | 钉钉事件订阅自动生成 |
 
